@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="./dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition register-page">
+<body class="hold-transition register-page ">
+    
+        <a href="./index2.html" class="h1"><b>UTS</b>Backend</a>
+        <h3>Profil</h3>
     <div class="register-box">
         <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a href="./index2.html" class="h1"><b>UTS</b>Backend</a>
-            </div>
             <div class="card-body">
             <p class="login-box-msg">Silahkan Registrasi</p>
 

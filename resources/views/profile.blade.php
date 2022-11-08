@@ -15,7 +15,7 @@
     <link rel="stylesheet" href={{ url('dist/css/adminlte.min.css') }}>
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini dark-mode">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -126,52 +126,56 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card card-primary card-outline">
+                        <div class="col-md-12">
 
-                                <div class="card-body box-profile">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card card-primary card-outline d-flex justify-content-between" style="height: 320px;">
+
+                                    <div class="card-body box-profile">
                                     <div class="text-center">
-                                        @if ($is_preview)
-                                            <h2>Foto Profil</h2>
-                                        @endif
-                                        <img class="profile-user-img img-fluid img-circle"
-                                            src="{{ url("photo/{$user['foto']}") }}" alt="User profile picture"
-                                            style="height: 100px; width:100px;">
+                                    @if ($is_preview)
+                                        <h2>Foto Profil</h2>
+                                    @endif
+                                    <img class="profile-user-img img-fluid img-circle"
+                                        src="{{ url("gambar/{$user['foto']}") }}" alt="User profile picture"
+                                        style="height: 100px; width:100px;">
                                     </div>
                                     @if (!$is_preview)
-                                        <p class="text-muted text-center">{{ $user['role'] }}</p>
-                                        <form enctype='multipart/form-data' action="{{ url('/uploadPhotoProfil72') }}"
-                                            method="POST">
-                                            @csrf
-                                            <div class="mt-3 form-group">
-                                                <label for="exampleInputFile">Ubah Foto Profil</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" name="photoProfil"
-                                                            class="custom-file-input" id="exampleInputFile">
-                                                        <label class="custom-file-label" for="exampleInputFile">Pilih
-                                                            Foto</label>
-                                                    </div>
+                                    <!-- <p class="text-muted text-center">{{ $user['role'] }}</p> -->
+                                    <form enctype='multipart/form-data' action="{{ url('/uploadPhotoProfil72') }}"
+                                        method="POST">
+                                        @csrf
+                                        <div class="mt-3 form-group">
+                                            <label for="exampleInputFile">Ubah Foto Profil</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name="photoProfil"
+                                                        class="custom-file-input" id="exampleInputFile">
+                                                    <label class="custom-file-label" for="exampleInputFile">Pilih
+                                                        Foto</label>
                                                 </div>
-                                                <button type="submit" class="mt-3 btn btn-warning btn-block"><b>Edit
-                                                        Foto</b></button>
-
                                             </div>
-                                        </form>
+                                            <button type="submit" class="mt-3 btn btn-warning btn-block"><b>Edit
+                                                    Foto</b></button>
+
+                                        </div>
+                                    </form>
                                     @endif
+                                    </div>
+
+                            <!-- /.card-body -->
                                 </div>
-
-                                <!-- /.card-body -->
                             </div>
-
-                            <div class="card card-primary card-outline">
+                            <div class="col-md-6">
+                                <div class="card card-primary card-outline d-flex flex-column justify-content-between" style="height: 320px;">
                                 <div class="card-body box-profile">
                                     <div class="text-center">
                                         @if ($is_preview)
                                             <h2>Foto KTP</h2>
                                         @endif
                                         <img class="profile-user-img img-fluid" style="height: 100px; width:150px;"
-                                            src="{{ url("photo/{$user['foto_ktp']}") }}" alt="User profile picture">
+                                            src="{{ url("gambar/{$user['foto_ktp']}") }}" alt="User profile picture">
                                     </div>
 
                                     @if (!$is_preview)
@@ -202,9 +206,14 @@
                                 </div>
                                 <!-- /.card-body -->
                             </div>
+                            </div>
+                        </div>
+   
+
+              
                         </div>
                         <!-- /.col -->
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header p-2">
                                     <ul class="nav nav-pills">

@@ -100,14 +100,14 @@ class Users72Controller extends Controller
         $detail = User::find($user->id)->detail;
 
         if ($detail->foto_ktp != "foto_ktp.png") {
-            if (file_exists(public_path('photo/' . $detail->foto_ktp))) {
-                unlink(public_path('photo/' . $detail->foto_ktp));
+            if (file_exists(public_path('gambar/' . $detail->foto_ktp))) {
+                unlink(public_path('gambar/' . $detail->foto_ktp));
             }
         }
 
         $file = request()->file('photoKTP');
         $fileName = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('photo/'), $fileName);
+        $file->move(public_path('gambar/'), $fileName);
 
         $detail->foto_ktp = $fileName;
         $savePhoto = $detail->save();
@@ -125,15 +125,15 @@ class Users72Controller extends Controller
         $detail = User::find($user->id);
 
         if ($detail->foto != "foto.png") {
-            if (file_exists(public_path('photo/' . $detail->foto))) {
-                unlink(public_path('photo/' . $detail->foto));
+            if (file_exists(public_path('gambar/' . $detail->foto))) {
+                unlink(public_path('gambar/' . $detail->foto));
             }
         }
 
         $file = request()->file('photoProfil');
 
         $fileName = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('photo/'), $fileName);
+        $file->move(public_path('gambar/'), $fileName);
 
         $detail->foto = $fileName;
 

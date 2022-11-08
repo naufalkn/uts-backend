@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="./dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini dark-mode">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -249,7 +249,7 @@
                                         <tbody>
                                             @foreach ($data as $item)
                                                 <tr>
-                                                    <td><img src="{{ url("photo/{$item->foto}") }}" alt=""
+                                                    <td><img src="{{ url("gambar/{$item->foto}") }}" alt=""
                                                             width="150px" height="100px">
                                                     </td>
 
@@ -358,7 +358,6 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,

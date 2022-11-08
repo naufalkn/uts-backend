@@ -18,12 +18,12 @@
 </head>
 
 <body class="hold-transition login-page">
+    
+<a href="./index2.html" class="h1"><b>UTS</b>Backend</a>
+        <h3>Profil</h3>
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a href="./index2.html" class="h1"><b>UTS</b>Backend</a>
-            </div>
             <div class="card-body">
                 <p class="login-box-msg"><b>Login</b></p>
 

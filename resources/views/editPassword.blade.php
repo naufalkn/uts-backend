@@ -15,7 +15,7 @@
     <link rel="stylesheet" href={{ url('dist/css/adminlte.min.css') }}>
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini dark-mode">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">

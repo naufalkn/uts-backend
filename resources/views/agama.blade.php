@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ url('dist/css/adminlte.min.css') }}">
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini dark-mode">
     <div class="wrapper">
         <!-- Navbar -->
 
@@ -83,7 +83,54 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-8">
+
+                    <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        @if (isset($agama))
+                                            Edit Agama
+                                        @else
+                                            Tambah Agama
+                                        @endif
+                                    </h3>
+                                </div>
+
+                                <div class="card-body">
+                                    @error('nama_agama')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+
+
+
+                                    <form
+                                        @if (isset($agama)) action="{{ url("agama72/{$agama->id}/update") }}"
+                                    @else
+                                        action="{{ url('agama72') }}" @endif
+                                        method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Nama Agama</label>
+                                            @if (isset($agama))
+                                                <input type="hidden" name="id" value="{{ $agama->id }}">
+                                            @endif
+                                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                                aria-describedby="emailHelp" placeholder="Nama Agama" name="nama_agama"
+                                                @if (isset($agama)) value="{{ $agama->nama_agama }}" @endif>
+                                        </div>
+                                        @if (isset($agama))
+                                            <button type="submit" class="btn btn-warning">Update</button>
+                                        @else
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        @endif
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-12">
 
                             <div class="card">
                                 <div class="card-header">
@@ -128,50 +175,7 @@
                             <!-- /.card -->
                         </div>
 
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">
-                                        @if (isset($agama))
-                                            Edit Agama
-                                        @else
-                                            Tambah Agama
-                                        @endif
-                                    </h3>
-                                </div>
 
-                                <div class="card-body">
-                                    @error('nama_agama')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-
-
-
-                                    <form
-                                        @if (isset($agama)) action="{{ url("agama72/{$agama->id}/update") }}"
-                                    @else
-                                        action="{{ url('agama72') }}" @endif
-                                        method="POST">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Nama Agama</label>
-                                            @if (isset($agama))
-                                                <input type="hidden" name="id" value="{{ $agama->id }}">
-                                            @endif
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Nama Agama" name="nama_agama"
-                                                @if (isset($agama)) value="{{ $agama->nama_agama }}" @endif>
-                                        </div>
-                                        @if (isset($agama))
-                                            <button type="submit" class="btn btn-warning">Update</button>
-                                        @else
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        @endif
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
@@ -224,7 +228,6 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,

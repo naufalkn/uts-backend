@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin72Controller;
+use App\Http\Controllers\Login72Controller;
 use App\Http\Controllers\Users72Controller;
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +24,8 @@ Route::group(['middleware' => ['isNotLogged']], function () {
     // Login & Register
     Route::view('/register72', 'register');
     Route::view('/login72', 'login');
-    Route::post('/register72', [Users72Controller::class, 'registerHandler72']);
-    Route::post('/login72', [Users72Controller::class, 'loginHandler72']);
+    Route::post('/register72', [Login72Controller::class, 'registerHandler72']);
+    Route::post('/login72', [Login72Controller::class, 'loginHandler72']);
 });
 
 Route::group(['middleware' => ['isUser']], function () {
@@ -62,4 +63,4 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get("/agama72/{id}/delete", [Admin72Controller::class, 'deleteAgama72']);
 });
 
-Route::get('/logout72', [Users72Controller::class, 'logoutHandler72'])->middleware('isLogged');
+Route::get('/logout72', [Login72Controller::class, 'logoutHandler72'])->middleware('isLogged');
